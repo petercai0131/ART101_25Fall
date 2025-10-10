@@ -1,0 +1,99 @@
+:root {
+  --bg: linear-gradient(#0f1326 0%, #11193a 40%, #0e0f2b 100%);
+  --card: rgba(255,255,255,0.06);
+  --card-hover: rgba(255,255,255,0.10);
+  --text: #e9ecff;
+  --accent: #7aa2ff;
+  --accent-2: #dd45ff;
+}
+
+body {
+  color: var(--text);
+  background: var(--bg) fixed no-repeat;
+  line-height: 1.55;
+}
+
+
+.title {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: .4px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(16px, 2.2vw, 22px);
+  color: var(--muted);
+  margin: 0 0 18px;
+  animation: fadeUp .9s ease-out both;
+}
+
+.lead {
+  max-width: 70ch;
+  margin: 10px 0 28px;
+  font-size: clamp(14px, 1.8vw, 18px);
+  color: #d6dbff;
+}
+
+
+.actions { margin: 12px 0 26px; }
+.cta {
+  appearance: none;
+  border: 1px solid transparent;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  font-weight: 700;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+.cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+
+.features, .steps {
+  backdrop-filter: blur(6px);
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 14px 16px 14px 22px;
+  max-width: 800px;
+  box-shadow: var(--shadow);
+}
+.features { margin: 0 0 18px; }
+.features li + li { margin-top: 8px; }
+.steps { margin: 0 0 22px; counter-reset: step; }
+.steps li {
+  margin: 8px 0;
+  padding-left: 4px;
+}
+
+.hero {
+  width: min(100%, 980px);
+  height: auto;
+  display: block;
+}
+.hero:hover { transform: scale(1.01); }
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.24), transparent);
+  margin: 24px 0 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+}
+.cards .card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 16px;
+}
+
+.site-footer {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: left;
+}

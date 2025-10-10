@@ -1,0 +1,43 @@
+p {
+    color: purple;
+    background-color: #f497a2;
+    width: 200px;
+    padding: 40px;
+}
+
+.highlight {
+    background-color: greenyellow;
+}
+
+.highlight1 {
+    background-color: rgba(42, 130, 230, 0.989);
+}
+
+.highlight2 {
+    background-color: pink;
+}
+
+#pink {
+    color: pink;
+}
+
+#babypink {
+    color: #f0b3db;
+}
+
+#purple {
+    color: purple;
+}
+
+#orange {
+    color: orange;
+}
+
+#acid {
+    color: rgb(43, 227, 163);
+}
+
+#futuraimg {
+    width: 400px;
+    height: 400px;
+}

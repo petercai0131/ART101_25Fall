@@ -1,0 +1,45 @@
+.test-div {
+    background: pink;
+    padding: 20px;
+    margin: 20px;
+    color: blanchedalmond;
+}
+
+.p1{
+    background: rgba(241, 71, 100, 0.345);
+}
+
+.test-div h2 {
+    color: rgba(2, 57, 237, 0.377);
+    text-decoration: underline;
+}
+
+button.special {
+    background-color: rgba(255, 192, 203, 0.419);
+    color: rgba(2, 57, 237, 0.791);
+    font-family: 'Segoe UI';
+}
+
+button {
+    font-family: 'Segoe UI';
+    background-color: aliceblue;
+}
+
+
+button.special:hover {
+    background-color: rgba(2, 57, 237, 0.166);
+
+}
+
+button:hover {
+    background-color: azure;
+}
+
+.my-flex {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.my-box{
+    display: flex;
+    flex-direction: column-reverse;
+}
