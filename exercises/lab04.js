@@ -1,19 +1,29 @@
 // declaring an array with name myCommutes
-let myCommutes = ["metro bus", "UCSC taps bus", "personal bike", "rental bike", "some random car", "friends"];
+let myCommutes = ["UCSC Loop shuttle",
+    "Caltrain + Highway 17 Express",
+    "E-bike",
+    "Boosted longboard",
+    "Motorcycle",
+    "Walking under the redwoods",
+    "Lyft ride"];
 
 // declaring an object with name myFavouriteCommute
 let myFavouriteCommute = {
-    type: "Bus",
-    route: 1,
-    print: "Mountain Lion",
-    hasMiddleDoor: true,
-    drivers: ["Elena", "Alex", "the guy with a red beard"],
+    type: "Motorcycle",
+    engineCC: 675,
+    avgMinutesDoorToDoor: 10,
+    hasABS: true,
+    gearChecklist: ["full-face helmet",
+        "armored jacket",
+        "gloves",
+        "rain pants",
+        "U-lock"],
 };
 
 let megaSentence;
 
-megaSentence = "<p>My two top commutes from the array are: " + myCommutes[0] + ", " + myCommutes[5] + "</p>";
+megaSentence = "<p>My two top commutes from the array are: " + myCommutes[4] + ", " + myCommutes[6] + ". </p>";
 
-megaSentence = megaSentence + "<p>My favourite commute possesses such characteristics: type - " + myFavouriteCommute.type + ", route number " + myFavouriteCommute.route + ", the best driver: " + myFavouriteCommute.drivers[0] + "</p>";
+megaSentence = megaSentence + "<p>My favourite commute possesses such characteristics: type - " + myFavouriteCommute.type + ", engineCC - " + myFavouriteCommute.engineCC + ", must bring gears: " + myFavouriteCommute.gearChecklist[0] + " and " + myFavouriteCommute.gearChecklist[2] + ". </p>";
 
 $("#output").html(megaSentence);
