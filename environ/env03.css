@@ -62,7 +62,6 @@ body {
 .js-div {
     display: flex;
     gap: 30px;
-    height: 600px;
     /* margin: 50px; */
     font-size: 200%;
     padding-left: 80px;
