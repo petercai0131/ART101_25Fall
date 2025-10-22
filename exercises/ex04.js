@@ -6,9 +6,11 @@ $("#needy-button").click(function(){
     // show how many times
     // add one to the total number
     // show the total number
+    let reminder = count % colors.length;
+
     $("#needy-button").html("Clicks: " + count +" Color: " + colors[count]);
     $("body").css({
-        "background-color": colors[count],
+        "background-color": colors[reminder],
     });
     count = count + 1;
     // if (count > 3){
