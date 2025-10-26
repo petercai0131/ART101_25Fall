@@ -11,5 +11,5 @@ function askNumber(whatNumber) {
 }
 
 $("#good-button").click(function () {
-    askNumber(5);
+    askNumber(8);
 });
