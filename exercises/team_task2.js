@@ -7,35 +7,35 @@ function askNumber() {
 
     if (userNumber == "Red") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Red.webp'>");
+       $("#output").append("<img width=200 src='images/Red.webp'>");
     }
     else if (userNumber == "Blue") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Blue.webp'>");
+       $("#output").append("<img width=200 src='images/Blue.webp'>");
     }
     else if (userNumber == "Bomb") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Bomb.webp'>");
+       $("#output").append("<img width=200 src='images/Bomb.webp'>");
     }
     else if (userNumber == "Bubbles") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Bubbles.webp'>");
+       $("#output").append("<img width=200 src='images/Bubbles.webp'>");
     }
     else if (userNumber == "Ice") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Ice.webp'>");
+       $("#output").append("<img width=200 src='images/Ice.webp'>");
     }
     else if (userNumber == "Matilda") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Matilda.webp'>");
+       $("#output").append("<img width=200 src='images/Matilda.webp'>");
     }
     else if (userNumber == "Stella") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Stella.webp'>");
+       $("#output").append("<img width=200 src='images/Stella.webp'>");
     }
     else if (userNumber == "Terence") {
         $("#output").html("You got it!");
-       $("#output").append("<img width=500 src='images/Terence.webp'>");
+       $("#output").append("<img width=200 src='images/Terence.webp'>");
     }
     else {
         $("#output").html("Lil Loser!!!!");
