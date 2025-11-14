@@ -290,13 +290,13 @@ $(document).ready(function () {
 
     // Add surge look
     $imgs.addClass("glitch-surge");
-    // Quick micro-shake on the first image for feedback
-    $imgs.eq(0).addClass("shake-once");
+    // Quick micro-shake on the image for feedback
+    $imgs.addClass("shake-once");
 
     // Remove the temporary classes shortly after
     setTimeout(() => {
       $imgs.removeClass("glitch-surge");
-      $imgs.eq(0).removeClass("shake-once");
+      $imgs.removeClass("shake-once");
     }, 180);
   }
 
