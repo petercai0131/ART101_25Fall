@@ -1,3 +1,17 @@
+// ===== GLOBAL CONSTANTS =====
+const SHAKE_DURATION = 180;
+const HOVER_ANIM_MS = 500;
+const HOVER_IMG_EXPAND = "420px";
+const HOVER_IMG_NORMAL = "350px";
+
+const ATOMIZE_INTENSITY = 400;
+const ATOMIZE_PERIOD = 800;
+
+const DRIFT_ROTATE_MAX = 3;     // degrees
+const HUE_SHIFT_MIN = 2;
+const HUE_SHIFT_VARIATION = 5;
+const HUE_RESET_VALUE = 180;
+
 // ---------- Basic variables ----------
 let worldTitle = "THE LOST DIGITAL REALM";
 let atmosphere = "chaotic, neon-glitched, and unstable";
@@ -130,7 +144,7 @@ $(".js-div .highlight").css({
           // Drift mode: smoother, includes subtle rotation
           dx *= 0.35;
           dy *= 0.35;
-          const rot = (Math.random() * 2 - 1) * 3; // ±3°
+          const rot = (Math.random() * 2 - 1) * DRIFT_ROTATE_MAX; // ±3°
           $el.css({
             transition: "transform 1.2s ease-in-out",
             transform: `translate(${dx}px, ${dy}px) rotate(${rot}deg)`,
@@ -158,12 +172,10 @@ $(".js-div .highlight").css({
 
     // Example: click to apply to entire page; strong drift with images
     $("#atomizeBtn").on("click", function () {
-      atomize(".pic, #top, #side-words", 400, 800, "drift", true);
+      atomize(".pic, #top, #side-words", ATOMIZE_INTENSITY, ATOMIZE_PERIOD, "drift", true);
     });
   });
 
-  // Optional: expose function globally for console or other buttons
-  window.atomize = atomize;
 })();
 
 
@@ -183,8 +195,8 @@ $(".js-div .highlight").css({
 
       // Start dynamic hue rotation between 180–360°
       hueTimer = setInterval(() => {
-        hueAngle += 2 + Math.random() * 5; // vary by 2–7 degrees per step
-        if (hueAngle > 360) hueAngle = 180; // loop range
+        hueAngle += HUE_SHIFT_MIN + Math.random() * HUE_SHIFT_VARIATION; // vary by 2–7 degrees per step
+        if (hueAngle > 360) hueAngle = HUE_RESET_VALUE; // loop range
         $("body").css("filter", `invert(1) hue-rotate(${hueAngle}deg)`);
       }, 100); // update every 0.1s
     } else {
@@ -202,8 +214,8 @@ $(document).ready(function () {
     function () {
       // When hovered: enlarge & glow
       $(this).stop().animate(
-        { width: "420px" }, // slightly larger
-        500
+        { width: HOVER_IMG_EXPAND }, // slightly larger
+        HOVER_ANIM_MS
       ).css({
         "box-shadow": "0 0 30px #00ffcc, 0 0 60px #ff00ff",
         "border-radius": "12px"
@@ -212,8 +224,8 @@ $(document).ready(function () {
     function () {
       // When mouse leaves: restore size & remove glow
       $(this).stop().animate(
-        { width: "350px" }, // original width
-        500
+        { width: HOVER_IMG_NORMAL }, // original width
+        HOVER_ANIM_MS
       ).css({
         "box-shadow": "none",
         "border-radius": "0px"
@@ -263,12 +275,20 @@ $(document).ready(function () {
       // Fade in hidden elements
       $hiddenEls.fadeIn(800);
 
-      // Reset image style
-      $(".pic img").css({
-        margin: "",
-        "box-shadow": "",
-        "border-radius": ""
-      });
+      // // Reset image style
+      // $(".pic img").css({
+      //   margin: "",
+      //   "box-shadow": "",
+      //   "border-radius": ""
+      // });
+
+      //=================
+      // Changed Here
+      //=================
+
+      $(".pic img").removeAttr("style");
+
+      //=================
 
       // Update button text
       $(this).text("Clean Up");
@@ -288,16 +308,31 @@ $(document).ready(function () {
     $("#hud").text(`KEY: ${keyLabel}`);
     const $imgs = $(".pic img");
 
+    // // Add surge look
+    // $imgs.addClass("glitch-surge");
+    // // Quick micro-shake on the image for feedback
+    // $imgs.addClass("shake-once");
+
+    // // Remove the temporary classes shortly after
+    // setTimeout(() => {
+    //   $imgs.removeClass("glitch-surge");
+    //   $imgs.removeClass("shake-once");
+    // }, 180);
+
+    //==================
+    // Changed Here
+    //==================
+
     // Add surge look
-    $imgs.addClass("glitch-surge");
     // Quick micro-shake on the image for feedback
-    $imgs.addClass("shake-once");
+    $imgs.toggleClass("glitch-surge shake-once", true);
 
     // Remove the temporary classes shortly after
     setTimeout(() => {
-      $imgs.removeClass("glitch-surge");
-      $imgs.removeClass("shake-once");
-    }, 180);
+      $imgs.toggleClass("glitch-surge shake-once", false);
+    }, SHAKE_DURATION);
+    //=================
+
   }
 
 
@@ -332,7 +367,7 @@ $(document).ready(function () {
     const hue = (y % 1000) * 0.1; // 0..100
     // Respect your existing invert mode: if .inverted is active, keep invert(1)
     if ($("body").hasClass("inverted")) {
-      $("body").css("filter", `invert(1) hue-rotate(${180 + hue}deg)`);
+      $("body").css("filter", `invert(1) hue-rotate(${HUE_RESET_VALUE + hue}deg)`);
     } else {
       $("body").css("filter", `hue-rotate(${hue}deg)`);
     }
